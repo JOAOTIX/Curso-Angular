@@ -1,0 +1,26 @@
+<div class="card shadow p-4 mt-4 w-75 mx-auto">
+  <h4 class="mb-3 fw-bold">Medicos de la Especialidad</h4>
+  <table class="table table-bordered table-striped align-middle text-center">
+    <thead class="table-light">
+      <tr>
+        <th>Codigo</th>
+        <th>Nombre</th>
+        <th>Foto</th>
+        <th>Experiencia</th>
+        <th>Citas</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (med of medicos; track med.codmed) {
+        <tr>
+          <td>{{ med.codmed }}</td>
+          <td>{{ med.nombre }}</td>
+          <td><img src="/fotos/{{ med.codmed }}.jpg" onerror="this.src='/fotos/sin_foto.jpg';" class="rounded-circle" width="40" height="40"></td>
+          <td>{{ anioActual - med.colegiatura }}</td>
+          <td><a [routerLink]="['/pacientes', med.codmed, costoBase]" class="text-primary text-decoration-underline">ver</a></td>
+        </tr>
+      }
+    </tbody>
+  </table>
+  <a routerLink="/especialidades" class="btn btn-secondary mt-2 w-25">Volver</a>
+</div>

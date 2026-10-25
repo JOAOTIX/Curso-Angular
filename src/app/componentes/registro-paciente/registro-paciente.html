@@ -1,0 +1,38 @@
+<div class="card shadow p-4 mt-4 w-50 mx-auto">
+  <h4 class="mb-4 fw-bold">Registro de Pacientes</h4>
+  
+  <form (ngSubmit)="enviarDatos()">
+    <table class="table table-bordered align-middle">
+      <tbody>
+        <tr>
+          <td class="fw-bold table-light w-25">Nro de cita</td>
+          <td><input type="text" class="form-control w-50" value="Autogenerado (Desde 10001)" disabled></td>
+        </tr>
+        <tr>
+          <td class="fw-bold table-light">Nombre</td>
+          <td><input type="text" class="form-control" name="nompac" [(ngModel)]="paciente.nompac" required></td>
+        </tr>
+        <tr>
+          <td class="fw-bold table-light">Tipo de paciente</td>
+          <td>
+            <div class="d-flex gap-3">
+              <label><input type="radio" name="tipo" [value]="1" [(ngModel)]="paciente.tipo" (change)="calcularPago()"> Asegurado</label>
+              <label><input type="radio" name="tipo" [value]="2" [(ngModel)]="paciente.tipo" (change)="calcularPago()"> Empresa</label>
+              <label><input type="radio" name="tipo" [value]="3" [(ngModel)]="paciente.tipo" (change)="calcularPago()"> Ambulatorio</label>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="fw-bold table-light">Pago</td>
+          <td><input type="text" class="form-control w-50" name="pago" [value]="paciente.pago | number:'1.1-2'" readonly></td>
+        </tr>
+        <tr>
+          <td class="table-light">
+            <button type="submit" class="btn btn-secondary">Enviar</button>
+          </td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</div>

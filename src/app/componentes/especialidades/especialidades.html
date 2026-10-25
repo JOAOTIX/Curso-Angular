@@ -1,0 +1,23 @@
+<div class="card shadow p-4 mt-4 w-50 mx-auto">
+  <h4 class="mb-3 fw-bold">Lista de Especialidades</h4>
+  <table class="table table-bordered table-striped text-center">
+    <thead class="table-light">
+      <tr>
+        <th>Codigo</th>
+        <th>Especialidad</th>
+        <th>Costo</th>
+        <th>Medicos</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (esp of listaEspecialidades; track esp.code) {
+        <tr>
+          <td>{{ esp.code }}</td>
+          <td>{{ esp.nome }}</td>
+          <td>{{ esp.costo }}</td>
+          <td><a [routerLink]="['/medicos', esp.code, esp.costo]" class="text-primary text-decoration-underline">ver</a></td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
